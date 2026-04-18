@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   </head>
+   <body>
+      <h2>The jQuery AJAX</h2>
+      <p id="demo">Let AJAX change this text.</p>
+      <button type="button" id="changeBtn">Change Content</button>
+      <script>
+         $(document).ready(function() {
+         $("#changeBtn").click(function() {
+         $("#demo").load("ajax_info.txt");
+         });
+         });
+      </script>
+   </body>
+</html>
