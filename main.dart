@@ -4,7 +4,7 @@ void main() {
   runApp(const CinemaCribApp());
 }
 
-// Model Data Film
+//Model Data Film
 class Movie {
   final String title;
   final String genre;
@@ -19,8 +19,7 @@ class Movie {
   });
 }
 
-// Data Dummy Film
-// Anda bisa mengganti link URL di 'imageUrl' dengan gambar asli nantinya.
+//Data Film
 final List<Movie> movieList = [
   Movie(
     title: 'Dune: Part Two',
@@ -56,7 +55,7 @@ class CinemaCribApp extends StatelessWidget {
     return MaterialApp(
       title: 'CinemaCrib',
       debugShowCheckedModeBanner: false,
-      // Konfigurasi Tema Gelap dengan aksen Oranye
+      //Dark theme
       theme: ThemeData(
         brightness: Brightness.dark,
         scaffoldBackgroundColor: const Color(0xFF121212),
@@ -87,12 +86,12 @@ class HomeScreen extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.bold, color: Colors.orange),
         ),
       ),
-      // SYARAT: Menggunakan ListView
+      //Menggunakan ListView
       body: ListView.builder(
         itemCount: movieList.length,
         itemBuilder: (context, index) {
           final movie = movieList[index];
-          // SYARAT: Navigasi halaman saat item ditekan
+          //Navigasi halaman saat item ditekan
           return InkWell(
             onTap: () {
               Navigator.push(
@@ -102,7 +101,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               );
             },
-            // SYARAT: Menggunakan Container, Row/Column
+            //Menggunakan Container, Row/Column
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               padding: const EdgeInsets.all(8),
@@ -114,7 +113,7 @@ class HomeScreen extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Gambar Poster (Bisa diganti manual nanti)
+                  //Gambar Poster film
                   ClipRRect(
                     borderRadius: BorderRadius.circular(8),
                     child: Image.network(
@@ -131,7 +130,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 16),
-                  // SYARAT: Menampilkan Judul dan Deskripsi Singkat
+                  //Menampilkan Judul dan Deskripsi Singkat
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,7 +202,7 @@ class _DetailScreenState extends State<DetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Poster Full
+            //Poster Full
             Image.network(
               widget.movie.imageUrl,
               width: double.infinity,
@@ -253,7 +252,7 @@ class _DetailScreenState extends State<DetailScreen> {
                   ),
                   const Divider(height: 40, color: Colors.grey),
                   
-                  // SYARAT: Form Sederhana berisi TextField dan Button
+                  //Ulasan: Form Sederhana berisi TextField dan Button
                   const Text(
                     'Tinggalkan Ulasan Anda',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -283,13 +282,13 @@ class _DetailScreenState extends State<DetailScreen> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.orange,
-                        foregroundColor: Colors.black, // Warna teks tombol
+                        foregroundColor: Colors.black, //Warna teks tombol kirim ulasan
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       onPressed: () {
-                        // SYARAT: Menampilkan Snackbar ketika tombol ditekan
+                        //Menampilkan Snackbar ketika tombol ditekan
                         if (_reviewController.text.isNotEmpty) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
@@ -298,7 +297,7 @@ class _DetailScreenState extends State<DetailScreen> {
                               duration: const Duration(seconds: 2),
                             ),
                           );
-                          _reviewController.clear(); // Kosongkan textfield setelah kirim
+                          _reviewController.clear(); //Kosongkan textfield setelah kirim
                         } else {
                            ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
