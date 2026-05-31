@@ -1,3 +1,4 @@
-# praktikum8_cameraapp
+# Laporan-Praktikum-ABP
+Hasil Laporan praktikum Aplikasi Berbasis Platform semester 6.
 
-A new Flutter project.
+Switch Branches for more! (Progress laporan)
